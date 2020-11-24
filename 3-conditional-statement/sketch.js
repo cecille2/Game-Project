@@ -8,7 +8,7 @@ let mySound;
 
 function preload() {
   soundFormats('mp3', 'ogg');
-  mySound = loadSound('bokuto_hey_hey_hey.mp3');
+  mySound = loadSound('bokuto_hey_hey_hey_copy.mp3');
 }
 
 
