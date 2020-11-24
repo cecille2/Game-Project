@@ -4,6 +4,13 @@ let balls = [];
 //create a variable to hold your avatar
 let me;
 
+let mySound;
+
+function preload() {
+  soundFormats('mp3', 'ogg');
+  mySound = loadSound('bokuto_hey_hey_hey.mp3');
+}
+
 
 function setup() {
   createCanvas(500, 400);
@@ -14,7 +21,7 @@ function setup() {
 }
 
 function draw(){
-	background(220);
+	background(82, 200, 255);
 
   me.drawMe();
   me.moveMe();
@@ -44,9 +51,9 @@ class Avatar {
 	}
 
 	drawMe(){  // draw the running person
-    		stroke("green");
+    		stroke("white");
         strokeWeight(3);
-    		fill("blue");
+    		fill("pink");
 		    ellipse(this.x,this.y,20,20);
         line(this.x,this.y, this.x, this.y+40);
         line(this.x, this.y+40, this.x-20, this.y+60);
@@ -63,7 +70,15 @@ class Avatar {
 
     if (keyIsDown(DOWN_ARROW)) { // if you hold the down arrow, move down by speed
         this.y += this.speed;
+      }
+    if (keyIsDown(LEFT_ARROW)){
+      this.x --;
     }
+   if (keyIsDown(RIGHT_ARROW)){
+      this.x ++;
+
+    }
+
 	}
 
   die(){
@@ -87,7 +102,7 @@ class Ball {
 	drawBall(){
     	stroke(0);
       strokeWeight(1);
-    	fill("red");
+    	fill("white");
 		  ellipse(this.x,this.y,10,10);
 	}
 
@@ -98,9 +113,12 @@ class Ball {
 	}
 
 	//if the ball hits the person, change the speed value to negative (send it in the opposite direction)
-  	bounceBall(){
-    		if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
-      			this.speed = -this.speed;
+  bounceBall(){
+      if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
+          this.speed = -this.speed;
+          mySound.setVolume(0.1);
+          mySound.play();
+
     		}
   	}
 

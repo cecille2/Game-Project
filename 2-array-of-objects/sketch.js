@@ -19,7 +19,7 @@ function draw(){
 }
 
 function keyPressed(){
-  // todo: 
+  // todo:
   //every time you push a key, make a new ball from the ball class and add it to the balls array
 }
 
