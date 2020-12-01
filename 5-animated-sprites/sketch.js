@@ -10,12 +10,12 @@ function preload() {
 //
 //   //create an animation from a sequence of numbered images
 //   //pass the first and the last file name and it will try to find the ones in between
-  ghost = loadAnimation('assets/ghost_standing0001.png', 'assets/ghost_standing0007.png');
+  ghost = loadAnimation('sprites/bakugou001.png', 'sprites/bakugou006.png');
 
 }
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(900, 900);
 }
 
 function draw() {
@@ -23,6 +23,7 @@ function draw() {
 
   //specify the animation instance and its x,y position
   //animation() will update the animation frame as well
-  animation(ghost, 300, 150);
+  scale(.5);
+  animation(ghost, 600, 400);
 
 }
